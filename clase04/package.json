@@ -1,0 +1,20 @@
+{
+  "name": "clase04",
+  "version": "1.1.0",
+  "type": "module",
+  "description": "Material de la clase04",
+  "main": "/src/app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon src/app.js"
+  },
+  "author": "Tomás Mársico",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2",
+    "moment": "^1.7.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  }
+}
