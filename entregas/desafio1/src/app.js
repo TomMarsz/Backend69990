@@ -1,13 +1,5 @@
-import express from "express"
-import router from "./router/index.js"
 import port from "./configs/server.config.js"
-
-const app = express()
-
-app.use(express.json())
-app.use(express.urlencoded({extended: true}))
-
-router(app)
+import app from "./server.js"
 
 app.get("/", (req, res) => {
   res.status(404).json({ error: "Use the routes '/api/products' or '/api/carts'" });
