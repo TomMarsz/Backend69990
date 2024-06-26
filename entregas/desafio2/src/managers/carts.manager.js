@@ -38,7 +38,7 @@ class CartManager {
     }
   }
 
-  async updateCartById(cartId, productId, quantity) {
+  async updateCartById(cartId, productId, quantity = 1) {
     try {
       const carts = await this.getCarts()
       const cartIndex = carts.findIndex((c) => c.id === cartId)

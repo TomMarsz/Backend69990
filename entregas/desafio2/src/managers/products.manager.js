@@ -17,7 +17,7 @@ class ProductManager {
   }
 
   validateProductData(productData) {
-    const { title, description, price, stock, category } = productData
+    const { title, description, price, status, stock, category } = productData
     if (!title || typeof title !== "string" || title.trim() === "") {
       throw new Error('Invalid product title')
     }
@@ -26,6 +26,9 @@ class ProductManager {
     }
     if (!price || typeof price !== "number" || price <= 0) {
       throw new Error('Invalid product price')
+    }
+    if (!status || typeof status !== "boolean") {
+      throw new Error('Invalid product status')
     }
     if (!stock || typeof stock !== "number" || stock < 0) {
       throw new Error('Invalid product stock')
@@ -41,7 +44,7 @@ class ProductManager {
       const products = await this.getProducts()
       const id = products.length + 1
       const code = randomUUID()
-      const newProduct = { id, code, status: true, ...productData }
+      const newProduct = { id, code, ...productData }
       products.push(newProduct)
       await fs.writeFile(`./${this.path}`, JSON.stringify(products, null, "\t"))
       console.log('New product added:', newProduct)
@@ -87,6 +90,7 @@ class ProductManager {
       const products = await this.getProducts()
       const productFind = products.find((p) => p.id === productId)
       const productIndex = products.findIndex((p) => p.id === productId)
+      console.log(productId);
       if (productIndex === -1) {
         throw new Error(`Product with ID ${productId} not found`)
       }

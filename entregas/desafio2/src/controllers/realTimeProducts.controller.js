@@ -1,41 +1,42 @@
 import { Router } from "express";
+import realTimeProductsManager from "../managers/realTimeProducts.manager.js ";
 import { io } from "../app.js";
-import productsService from "../services/products.service.js";
-import HTTP_RESPONSES from "../constants/http-responses.constant.js";
 
-const realTimeProductsController = Router()
+const router = Router()
 
-realTimeProductsController.get('/', async (req, res) => {
+router.get('/', async (req, res) => {
   try {
-    const products = await productsService.getAll()
+    const products = await realTimeProductsManager.getProducts()
     return res.render('realTimeProducts.handlebars', { products, title: 'Challenge05: WebsocketsHandlebars', style: 'realTimeProducts.css' })
   } catch (error) {
-    res.status(HTTP_RESPONSES.INTERNAL_SERVER_ERROR).json({ error: error.message })
+    res.status(500).json({ error: error.message })
   }
 })
 
-realTimeProductsController.post('/', async (req, res) => {
+router.post('/', async (req, res) => {
   try {
     const { body } = req
-    const newProduct = await productsService.insertOne(body)
-    const products = await productsService.getAll()
+    const productAdded = await realTimeProductsManager.addProduct(body)
+    const products = await realTimeProductsManager.getProducts()
     io.emit('newArrProducts', products)
-    return res.status(HTTP_RESPONSES.CREATED).json({ payload: { newProduct } })
+    return res.status(200).json({ products })
+    // return res.render('realTimeProducts.handlebars', { products, productAdded, title: 'Challenge05: WebsocketsHandlebars', style: 'realTimeProducts.css' })
   } catch (error) {
-    res.status(HTTP_RESPONSES.INTERNAL_SERVER_ERROR).json({ error: error.message })
+    res.status(500).json({ error: error.message })
   }
 })
 
-realTimeProductsController.delete('/:pid', async (req, res) => {
+router.delete('/:pid', async (req, res) => {
   try {
     const { pid } = req.params
-    const deletedProduct = await productsService.deleteOne(pid)
-    const products = await productsService.getAll()
+    const deletedProduct = await realTimeProductsManager.deleteProductById(Number(pid))
+    const products = await realTimeProductsManager.getProducts()
     io.emit('newArrProducts', products)
-    return res.status(HTTP_RESPONSES.ACCEPTED).json({ payload: { deletedProduct } })
+    return res.status(200).json({ products })
+    // res.render('realTimeProducts.handlebars', { products, deletedProduct, title: 'Challenge05: WebsocketsHandlebars', style: 'realTimeProducts.css' })
   } catch (error) {
-    res.status(HTTP_RESPONSES.INTERNAL_SERVER_ERROR).json({ error: error.message })
+    res.status(500).json({ error: error.message })
   }
 })
 
-export default realTimeProductsController
+export default router

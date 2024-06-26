@@ -1,13 +1,11 @@
-import productsController from "../controllers/products.controller.js";
-import cartsController from "../controllers/carts.controller.js";
-import realTimeProductsController from "../controllers/realTimeProducts.controller.js";
-import messagesController from "../controllers/messages.controller.js";
+import productsRouter from "../controllers/products.controller.js";
+import cartsRouter from "../controllers/carts.controller.js";
+import realTimeProductsRouter from "../controllers/realTimeProducts.controller.js";
 
 const router = app => {
-  app.use("/api/products", productsController);
-  app.use("/api/carts", cartsController);
-  app.use("/api/realtimeproducts", realTimeProductsController);
-  app.use("/api/chats", messagesController)
+  app.use("/api/products", productsRouter);
+  app.use("/api/carts", cartsRouter);
+  app.use("/realtimeproducts", realTimeProductsRouter)
 }
 
 export default router
