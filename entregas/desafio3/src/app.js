@@ -1,35 +1,10 @@
-import express from "express"
-import handlebars from "express-handlebars"
 import { Server } from "socket.io";
-import router from "./router/index.js"
-import mongoConnect from "./db/index.js";
 import port from "./configs/server.config.js"
 import messagesService from "./services/messages.service.js";
 import HTTP_RESPONSES from "./constants/http-responses.constant.js";
-
+import app from "./server.js";
 
 const chats = []
-
-const app = express()
-
-const hbs = handlebars.create({
-  runtimeOptions: {
-    allowProtoPropertiesByDefault: true,
-    allowProtoMethodsByDefault: true,
-  },
-})
-
-app.use(express.json())
-app.use(express.static(process.cwd() + '/src/public'))
-app.use(express.urlencoded({extended: true}))
-
-app.engine('handlebars', hbs.engine)
-app.set('views', process.cwd() + '/src/views')
-
-
-mongoConnect()
-
-router(app)
 
 app.get("/", (req, res) => {
   res.status(HTTP_RESPONSES.SUCCESS).render('index.handlebars', { title: 'Challenge05: WebsocketsHandlebars', style: 'index.css' })

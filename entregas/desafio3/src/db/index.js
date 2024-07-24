@@ -11,7 +11,3 @@ const mongoConnect = async () => {
 }
 
 export default mongoConnect
-
-// mongodb+srv://admin:<password>@backend69990.dkiqogp.mongodb.net/?retryWrites=true&w=majority&appName=Backend69990
-
-// mongodb+srv://admin:<password>@backend69990.dkiqogp.mongodb.net/?retryWrites=true&w=majority&appName=Backend69990
