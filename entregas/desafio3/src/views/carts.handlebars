@@ -1,0 +1,40 @@
+<div class="container">
+  {{#if carts}}
+  <h2>Lista de Productos</h2>
+  <table>
+    <tr>
+      <th><span>ID</span></th>
+      <th><span>Productos</span></th>
+    </tr>
+    {{#each carts}}
+    <tr>
+      <td>{{_id}}</td>
+      <td>
+        {{#each products}}
+        <ul>
+          <li>ID:{{product}}</li>
+          <li>Cantidad: {{quantity}}</li>
+        </ul>
+        {{/each}}
+      </td>
+    </tr>
+    {{/each}}
+  </table>
+  {{/if}}
+
+  {{#if productsInCart}}
+  <h2>Carrito con Id: <span>{{cid}}</span></h2>
+  <table>
+    <tr>
+      <th><span>Producto</span></th>
+      <th><span>Cantidad</span></th>
+    </tr>
+    {{#each productsInCart}}
+    <tr>
+      <td>{{product}}</td>
+      <td>{{quantity}}</td>
+    </tr>
+    {{/each}}
+  </table>
+  {{/if}}
+</div>
