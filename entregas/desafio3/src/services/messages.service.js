@@ -1,4 +1,4 @@
-import MessageDAOMongo from "../../DAO/mongo/message-dao.mongo.js"
+import MessageDAOMongo from "../../DAO/mongo/messages.mongo.js"
 
 const Message = new MessageDAOMongo()
 

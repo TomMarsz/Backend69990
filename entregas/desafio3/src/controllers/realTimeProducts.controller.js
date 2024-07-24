@@ -3,9 +3,9 @@ import { io } from "../app.js";
 import productsService from "../services/products.service.js";
 import HTTP_RESPONSES from "../constants/http-responses.constant.js";
 
-const realTimeProductsController = Router()
+const router = Router()
 
-realTimeProductsController.get('/', async (req, res) => {
+router.get('/', async (req, res) => {
   try {
     const products = await productsService.getAll()
     return res.render('realTimeProducts.handlebars', { products, title: 'Challenge05: WebsocketsHandlebars', style: 'realTimeProducts.css' })
@@ -14,7 +14,7 @@ realTimeProductsController.get('/', async (req, res) => {
   }
 })
 
-realTimeProductsController.post('/', async (req, res) => {
+router.post('/', async (req, res) => {
   try {
     const { body } = req
     const newProduct = await productsService.insertOne(body)
@@ -26,7 +26,7 @@ realTimeProductsController.post('/', async (req, res) => {
   }
 })
 
-realTimeProductsController.delete('/:pid', async (req, res) => {
+router.delete('/:pid', async (req, res) => {
   try {
     const { pid } = req.params
     const deletedProduct = await productsService.deleteOne(pid)
@@ -38,4 +38,4 @@ realTimeProductsController.delete('/:pid', async (req, res) => {
   }
 })
 
-export default realTimeProductsController
+export default router

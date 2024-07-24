@@ -1,4 +1,4 @@
-import ProductDAOMongo from "../../DAO/mongo/product-dao.mongo.js"
+import ProductDAOMongo from "../../DAO/mongo/products.mongo.js"
 
 const Product = new ProductDAOMongo()
 

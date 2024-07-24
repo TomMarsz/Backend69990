@@ -1,9 +1,9 @@
 import { Router } from "express";
 import HTTP_RESPONSES from "../constants/http-responses.constant.js";
 
-const messagesController = Router()
+const router = Router()
 
-messagesController.get('/', async (req, res) => {
+router.get('/', async (req, res) => {
   try {
     res.status(HTTP_RESPONSES.SUCCESS).render('chats.handlebars', {title: 'Challenge05: WebsocketsHandlebars', style: 'chats.css'})
   } catch (error) {
@@ -11,4 +11,4 @@ messagesController.get('/', async (req, res) => {
   }
 })
 
-export default messagesController
+export default router

@@ -2,9 +2,9 @@ import { Router } from "express";
 import productsService from "../services/products.service.js";
 import HTTP_RESPONSES from "../constants/http-responses.constant.js";
 
-const productsController = Router()
+const router = Router()
 
-productsController.get('/', async (req, res) => {
+router.get('/', async (req, res) => {
   try {
     const { limit } = req.query
     const products = await productsService.getAll()
@@ -17,7 +17,7 @@ productsController.get('/', async (req, res) => {
   }
 });
 
-productsController.get('/:pid', async (req, res) => {
+router.get('/:pid', async (req, res) => {
   try {
     const { pid } = req.params
     const productById = await productsService.findOne(pid)
@@ -27,7 +27,7 @@ productsController.get('/:pid', async (req, res) => {
   }
 })
 
-productsController.post('/', async (req, res) => {
+router.post('/', async (req, res) => {
   try {
     const { title, description, price, stock, category, thumbnail } = req.body
     const newProductInfo = { title, description, price, stock, category, thumbnail }
@@ -38,7 +38,7 @@ productsController.post('/', async (req, res) => {
   }
 })
 
-productsController.put('/:pid', async (req, res) => {
+router.put('/:pid', async (req, res) => {
   try {
     const { pid } = req.params
     const { title, description, price, stock, category, thumbnail } = req.body
@@ -51,7 +51,7 @@ productsController.put('/:pid', async (req, res) => {
   }
 })
 
-productsController.delete('/:pid', async (req, res) => {
+router.delete('/:pid', async (req, res) => {
   try {
     const { pid } = req.params
     const deletedProduct = await productsService.deleteOne(pid)
@@ -61,4 +61,4 @@ productsController.delete('/:pid', async (req, res) => {
   }
 })
 
-export default productsController
+export default router

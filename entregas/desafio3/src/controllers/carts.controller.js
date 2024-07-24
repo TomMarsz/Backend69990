@@ -2,9 +2,9 @@ import { Router } from "express";
 import cartsService from "../services/carts.service.js";
 import HTTP_RESPONSES from "../constants/http-responses.constant.js";
 
-const cartsController = Router()
+const router = Router()
 
-cartsController.get('/', async (req, res) => {
+router.get('/', async (req, res) => {
   try {
     const carts = await cartsService.getAll()
     res.status(HTTP_RESPONSES.SUCCESS).render('carts.handlebars', { carts, title: 'Challenge05: WebsocketsHandlebars', style: 'carts.css' })
@@ -13,7 +13,7 @@ cartsController.get('/', async (req, res) => {
   }
 })
 
-cartsController.get('/:cid', async (req, res) => {
+router.get('/:cid', async (req, res) => {
   try {
     const { cid } = req.params
     const cart = await cartsService.findOne(cid)
@@ -24,7 +24,7 @@ cartsController.get('/:cid', async (req, res) => {
   }
 })
 
-cartsController.post('/', async (req, res) => {
+router.post('/', async (req, res) => {
   try {
     const { body } = req
     const newCartInfo = body
@@ -35,7 +35,7 @@ cartsController.post('/', async (req, res) => {
   }
 })
 
-cartsController.post('/:cid/products/:pid', async (req, res) => {
+router.post('/:cid/products/:pid', async (req, res) => {
   try {
     const { cid, pid } = req.params
     const updatedCart = await cartsService.addProductToCart(cid, pid)
@@ -47,4 +47,4 @@ cartsController.post('/:cid/products/:pid', async (req, res) => {
 
 })
 
-export default cartsController
+export default router

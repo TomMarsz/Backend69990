@@ -1,4 +1,4 @@
-import CartDAOMongo from "../../DAO/mongo/cart-dao.mongo.js"
+import CartDAOMongo from "../../DAO/mongo/carts.mongo.js"
 
 const Cart = new CartDAOMongo()
 
