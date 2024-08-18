@@ -1,13 +1,14 @@
 import { Router } from "express";
 import { io } from "../app.js";
-import productsService from "../services/products.service.js";
+import ProductManager from "../managers/products.manager.js";
 import HTTP_RESPONSES from "../constants/http-responses.constant.js";
 
 const router = Router()
+const productManager = new ProductManager()
 
 router.get('/', async (req, res) => {
   try {
-    const products = await productsService.getAll()
+    const products = await productManager.getAll()
     return res.render('realTimeProducts.handlebars', { products, title: 'Challenge05: WebsocketsHandlebars', style: 'realTimeProducts.css' })
   } catch (error) {
     res.status(HTTP_RESPONSES.INTERNAL_SERVER_ERROR).json({ error: error.message })
@@ -17,8 +18,8 @@ router.get('/', async (req, res) => {
 router.post('/', async (req, res) => {
   try {
     const { body } = req
-    const newProduct = await productsService.insertOne(body)
-    const products = await productsService.getAll()
+    const newProduct = await productManager.insertOne(body)
+    const products = await productManager.getAll()
     io.emit('newArrProducts', products)
     return res.status(HTTP_RESPONSES.CREATED).json({ payload: { newProduct } })
   } catch (error) {
@@ -29,8 +30,8 @@ router.post('/', async (req, res) => {
 router.delete('/:pid', async (req, res) => {
   try {
     const { pid } = req.params
-    const deletedProduct = await productsService.deleteOne(pid)
-    const products = await productsService.getAll()
+    const deletedProduct = await productManager.deleteOne(pid)
+    const products = await productManager.getAll()
     io.emit('newArrProducts', products)
     return res.status(HTTP_RESPONSES.ACCEPTED).json({ payload: { deletedProduct } })
   } catch (error) {
