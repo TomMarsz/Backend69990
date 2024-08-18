@@ -1,131 +1,122 @@
 [
 	{
-		"id": 1,
-		"title": "Honda",
-		"description": "Honda",
-		"code": "0277e718-51d5-491d-a3b4-bc8921e027d0",
-		"price": 9153,
+		"title": "Wireless Bluetooth Headphones",
+		"description": "Over-ear, noise-cancelling wireless Bluetooth headphones with a built-in microphone.",
+		"price": 89.99,
 		"status": true,
-		"stock": 10,
-		"category": "car",
+		"stock": 120,
+		"category": "Electronics",
 		"thumbnail": [
-			"https://marcasdecoches.info/wp-content/uploads/2020/05/logotipo-actual-de-honda.jpg?ezimgfmt=ng%3Awebp%2Fngcb1%2Frs%3Adevice%2Frscb1-1"
+			"https://example.com/images/headphones1.jpg",
+			"https://example.com/images/headphones2.jpg"
 		]
 	},
 	{
-		"id": 2,
-		"title": "Mini Cooper",
-		"description": "Mini Cooper",
-		"code": "0277e718-51d5-491d-a3b4-bc8921e027d1",
-		"price": 4438,
+		"title": "Smart LED TV 55-inch",
+		"description": "55-inch 4K UHD Smart LED TV with streaming capabilities and voice control.",
+		"price": 599.99,
 		"status": true,
-		"stock": 10,
-		"category": "car",
+		"stock": 45,
+		"category": "Electronics",
 		"thumbnail": [
-			"https://acnews.blob.core.windows.net/imgnews/extralarge/NAZ_16d81085f2a64be09e1a0b9c55eb04b9.jpg"
+			"https://example.com/images/tv1.jpg",
+			"https://example.com/images/tv2.jpg"
 		]
 	},
 	{
-		"id": 3,
-		"title": "Mitsubishi",
-		"description": "Mitsubishi",
-		"code": "0277e718-51d5-491d-a3b4-bc8921e027d2",
-		"price": 9153,
+		"title": "Ergonomic Office Chair",
+		"description": "Comfortable ergonomic office chair with adjustable height and lumbar support.",
+		"price": 149.99,
 		"status": true,
-		"stock": 10,
-		"category": "car",
+		"stock": 200,
+		"category": "Furniture",
 		"thumbnail": [
-			"https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Mitsubishi_motors_new_logo.svg/169px-Mitsubishi_motors_new_logo.svg.png"
+			"https://example.com/images/chair1.jpg",
+			"https://example.com/images/chair2.jpg"
 		]
 	},
 	{
-		"id": 4,
-		"title": "Toyota",
-		"description": "Toyota",
-		"code": "0277e718-51d5-491d-a3b4-bc8921e027d3",
-		"price": 9153,
+		"title": "Running Shoes",
+		"description": "Breathable, lightweight running shoes suitable for all terrains.",
+		"price": 79.99,
 		"status": true,
-		"stock": 10,
-		"category": "car",
+		"stock": 150,
+		"category": "Footwear",
 		"thumbnail": [
-			"https://www.toyota.com.ar/images/logos/logo-toyota.svg"
+			"https://example.com/images/shoes1.jpg",
+			"https://example.com/images/shoes2.jpg"
 		]
 	},
 	{
-		"id": 5,
-		"title": "Smart",
-		"description": "Smart",
-		"code": "0277e718-51d5-491d-a3b4-bc8921e027d4",
-		"price": 9153,
+		"title": "Stainless Steel Water Bottle",
+		"description": "Durable, leak-proof stainless steel water bottle with a 750ml capacity.",
+		"price": 24.99,
 		"status": true,
-		"stock": 10,
-		"category": "car",
+		"stock": 300,
+		"category": "Accessories",
 		"thumbnail": [
-			"https://www.smart.mercedes-benz.com/logo.svg"
+			"https://example.com/images/bottle1.jpg",
+			"https://example.com/images/bottle2.jpg"
 		]
 	},
 	{
-		"id": 6,
-		"title": "Oldsmobile",
-		"description": "Oldsmobile",
-		"code": "0277e718-51d5-491d-a3b4-bc8921e027d5",
-		"price": 9153,
-		"stock": 10,
-		"category": "car",
+		"title": "Smartphone 128GB",
+		"description": "High-performance smartphone with 128GB storage, dual camera, and fast charging.",
+		"price": 699.99,
+		"status": true,
+		"stock": 80,
+		"category": "Electronics",
 		"thumbnail": [
-			"https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Oldsmobile_logo_used_from_1981_until_1997.svg/245px-Oldsmobile_logo_used_from_1981_until_1997.svg.png"
+			"https://example.com/images/smartphone1.jpg",
+			"https://example.com/images/smartphone2.jpg"
 		]
 	},
 	{
-		"id": 7,
-		"title": "Subaru",
-		"description": "Subaru",
-		"code": "0277e718-51d5-491d-a3b4-bc8921e027d6",
-		"price": 9153,
+		"title": "Gaming Laptop",
+		"description": "15.6-inch gaming laptop with powerful graphics card, 16GB RAM, and 512GB SSD.",
+		"price": 1199.99,
 		"status": true,
-		"stock": 10,
-		"category": "car",
+		"stock": 50,
+		"category": "Computers",
 		"thumbnail": [
-			"https://motor.elpais.com/wp-content/uploads/2022/05/Subaru-logo-2048x1152.webp"
+			"https://example.com/images/laptop1.jpg",
+			"https://example.com/images/laptop2.jpg"
 		]
 	},
 	{
-		"id": 8,
-		"title": "Renault",
-		"description": "Renault",
-		"code": "0277e718-51d5-491d-a3b4-bc8921e027d7",
-		"price": 9153,
+		"title": "Coffee Maker",
+		"description": "Automatic coffee maker with programmable settings, built-in grinder, and 12-cup capacity.",
+		"price": 129.99,
 		"status": true,
-		"stock": 10,
-		"category": "car",
+		"stock": 100,
+		"category": "Home Appliances",
 		"thumbnail": [
-			"https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Renault_2021_Text.svg/120px-Renault_2021_Text.svg.png"
+			"https://example.com/images/coffeemaker1.jpg",
+			"https://example.com/images/coffeemaker2.jpg"
 		]
 	},
 	{
-		"id": 9,
-		"title": "Dodge",
-		"description": "Dodge",
-		"code": "0277e718-51d5-491d-a3b4-bc8921e027d8",
-		"price": 9153,
+		"title": "Fitness Tracker",
+		"description": "Waterproof fitness tracker with heart rate monitor, sleep tracking, and GPS.",
+		"price": 59.99,
 		"status": true,
-		"stock": 10,
-		"category": "car",
+		"stock": 150,
+		"category": "Wearables",
 		"thumbnail": [
-			"https://www.excelenciasdelmotor.com/sites/default/files/sites/default/files/imagenes-portada-ffp/dodge_0.jpg"
+			"https://example.com/images/fitnesstracker1.jpg",
+			"https://example.com/images/fitnesstracker2.jpg"
 		]
 	},
 	{
-		"id": 10,
-		"title": "Ford",
-		"description": "Ford",
-		"code": "0277e718-51d5-491d-a3b4-bc8921e027d9",
-		"price": 9153,
+		"title": "Electric Toothbrush",
+		"description": "Rechargeable electric toothbrush with multiple cleaning modes and a 2-minute timer.",
+		"price": 49.99,
 		"status": true,
-		"stock": 10,
-		"category": "car",
+		"stock": 200,
+		"category": "Personal Care",
 		"thumbnail": [
-			"https://upload.wikimedia.org/wikipedia/commons/a/a0/Ford_Motor_Company_Logo.svg"
+			"https://example.com/images/toothbrush1.jpg",
+			"https://example.com/images/toothbrush2.jpg"
 		]
 	}
 ]
