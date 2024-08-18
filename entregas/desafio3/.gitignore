@@ -1,4 +1,4 @@
 /node_modules
 package-lock.json
-*carts.test.json
-*products.test.json
+/data
+notes.txt
