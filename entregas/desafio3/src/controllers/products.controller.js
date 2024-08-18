@@ -65,8 +65,8 @@ router.get('/', async (req, res) => {
 
 
 router.get('/:pid', async (req, res) => {
+  const { pid } = req.params
   try {
-    const { pid } = req.params
     const productById = await productManager.findOne(pid)
     res.status(HTTP_RESPONSES.SUCCESS).render('products.handlebars', { productById, title: 'Products | Backend 69990', style: 'products.css' })
   } catch (error) {
@@ -75,8 +75,8 @@ router.get('/:pid', async (req, res) => {
 })
 
 router.post('/', async (req, res) => {
+  const { title, description, price, stock, category, thumbnail } = req.body
   try {
-    const { title, description, price, stock, category, thumbnail } = req.body
     const newProductInfo = { title, description, price, stock, category, thumbnail }
     const newProduct = await productManager.insertOne(newProductInfo)
     res.status(HTTP_RESPONSES.CREATED).json({ payload: { newProduct } })
@@ -86,10 +86,10 @@ router.post('/', async (req, res) => {
 })
 
 router.put('/:pid', async (req, res) => {
+  const { pid } = req.params
+  const { enableProd } = req.query
+  const { title, description, price, stock, category, thumbnail } = req.body
   try {
-    const { pid } = req.params
-    const { enableProd } = req.query
-    const { title, description, price, stock, category, thumbnail } = req.body
     if (enableProd === "true") {
       const enableProduct = await productManager.enableOne(pid)
       return res.status(HTTP_RESPONSES.ACCEPTED).json({ payload: { enableProduct } })
@@ -104,8 +104,8 @@ router.put('/:pid', async (req, res) => {
 })
 
 router.delete('/:pid', async (req, res) => {
+  const { pid } = req.params
   try {
-    const { pid } = req.params
     const deletedProduct = await productManager.deleteOne(pid)
     res.status(HTTP_RESPONSES.ACCEPTED).json({ payload: { deletedProduct } })
   } catch (error) {

@@ -1,12 +1,13 @@
 import { Router } from "express";
-import cartsService from "../services/carts.service.js";
+import CartManager from "../managers/carts.manager.js";
 import HTTP_RESPONSES from "../constants/http-responses.constant.js";
 
 const router = Router()
+const cartManager = new CartManager()
 
 router.get('/', async (req, res) => {
   try {
-    const carts = await cartsService.getAll()
+    const carts = await cartManager.getAll()
     res.status(HTTP_RESPONSES.SUCCESS).render('carts.handlebars', { carts, title: 'Carts | Backend 69990', style: 'carts.css' })
   } catch (error) {
     res.status(HTTP_RESPONSES.INTERNAL_SERVER_ERROR).json({ error: error.message })
@@ -14,11 +15,10 @@ router.get('/', async (req, res) => {
 })
 
 router.get('/:cid', async (req, res) => {
+  const { cid } = req.params
   try {
-    const { cid } = req.params
-    const cart = await cartsService.findOne(cid)
-    const productsInCart = cart[0].products
-    res.status(HTTP_RESPONSES.SUCCESS).render('carts.handlebars', { productsInCart, cid, title: 'Carts | Backend 69990', style: 'carts.css' })
+    const cart = await cartManager.findOne(cid)
+    res.status(HTTP_RESPONSES.SUCCESS).render('carts.handlebars', { cart, cid, title: 'Carts | Backend 69990', style: 'carts.css' })
   } catch (error) {
     res.status(HTTP_RESPONSES.INTERNAL_SERVER_ERROR).json({ error: error.message })
   }
@@ -26,9 +26,7 @@ router.get('/:cid', async (req, res) => {
 
 router.post('/', async (req, res) => {
   try {
-    const { body } = req
-    const newCartInfo = body
-    const newCart = await cartsService.insertOne(newCartInfo)
+    const newCart = await cartManager.insertOne()
     res.status(HTTP_RESPONSES.CREATED).json({ payload: { newCart } })
   } catch (error) {
     res.status(HTTP_RESPONSES.INTERNAL_SERVER_ERROR).json({ error: error.message })
@@ -36,9 +34,10 @@ router.post('/', async (req, res) => {
 })
 
 router.post('/:cid/products/:pid', async (req, res) => {
+  const { cid, pid } = req.params
+  const quantity = req.body.quantity || 1;
   try {
-    const { cid, pid } = req.params
-    const updatedCart = await cartsService.addProductToCart(cid, pid)
+    const updatedCart = await cartManager.addProductToCart(cid, pid, quantity)
     res.status(HTTP_RESPONSES.CREATED).json({ payload: { updatedCart } })
   }
   catch (error) {
