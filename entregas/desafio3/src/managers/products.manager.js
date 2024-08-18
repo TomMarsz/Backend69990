@@ -1,6 +1,6 @@
 import Product from "../models/product.model.js";
 
-class ProductDAO {
+class ProductManager {
   async getAll() {
     return await Product.find({ status: true })
   }
@@ -24,6 +24,18 @@ class ProductDAO {
     await Product.updateOne({ _id: pid }, { status: false })
     return await Product.find({ _id: pid })
   }
+
+  async sortByPrice(num) {
+    return await Product.find({status: true}).sort({price: num})
+  }
+
+  async sortByCategory(num) {
+    return await Product.find({status: true}).sort({category: num})
+  }
+
+  async limitProducts(num) {
+    return await Product.find({status: true}).limit(num)
+  }
 }
 
-export default ProductDAO
+export default ProductManager

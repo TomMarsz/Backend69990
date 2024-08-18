@@ -1,6 +1,6 @@
-import CartDAOMongo from "../../DAO/mongo/carts.mongo.js"
+import CartManager from "../managers/carts.manager.js"
 
-const Cart = new CartDAOMongo()
+const Cart = new CartManager()
 
 const getAll = async () => {
   try {

@@ -1,6 +1,6 @@
-import ProductDAOMongo from "../../DAO/mongo/products.mongo.js"
+import ProductManager from "../managers/products.manager.js"
 
-const Product = new ProductDAOMongo()
+const Product = new ProductManager()
 
 const getAll = async () => {
   try {
@@ -47,10 +47,40 @@ const deleteOne = async (pid) => {
   }
 }
 
+const sortByPrice = async (num) => {
+  try {
+    const products = await Product.sortByPrice(num)
+    return products
+  } catch (error) {
+    throw error
+  }
+}
+
+const sortByCategory = async (num) => {
+  try {
+    const products = await Product.sortByCategory(num)
+    return products
+  } catch (error) {
+    throw error
+  }
+}
+
+const limitProducts = async (num) => {
+  try {
+    const productsLimited = await Product.limitProducts(num)
+    return productsLimited
+  } catch (error) {
+    throw error
+  }
+}
+
 export default {
   getAll,
   insertOne,
   findOne,
   updateOne,
-  deleteOne
+  deleteOne,
+  sortByPrice,
+  sortByCategory,
+  limitProducts
 }

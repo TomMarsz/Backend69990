@@ -1,7 +1,5 @@
 import mongoose from 'mongoose'
 
-const productCollection = 'products'
-
 const productSchema = new mongoose.Schema({
   title: String,
   description: String,
@@ -17,6 +15,6 @@ const productSchema = new mongoose.Schema({
   updatedAt: Date
 })
 
-const Product = mongoose.model(productCollection, productSchema)
+const Product = mongoose.model('products', productSchema)
 
 export default Product

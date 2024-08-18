@@ -1,8 +1,6 @@
 import mongoose from 'mongoose'
 import Product from './product.model.js';
 
-const cartCollection = 'carts'
-
 const cartSchema = new mongoose.Schema({
     products: [{
       product: {
@@ -24,6 +22,6 @@ const cartSchema = new mongoose.Schema({
     updatedAt: Date
   });
 
-const Cart = mongoose.model(cartCollection, cartSchema)
+const Cart = mongoose.model('carts', cartSchema)
 
 export default Cart

@@ -1,6 +1,6 @@
-import MessageDAOMongo from "../../DAO/mongo/messages.mongo.js"
+import MessageManager from "../managers/messages.manager.js"
 
-const Message = new MessageDAOMongo()
+const Message = new MessageManager()
 
 const getAll = async () => {
   try {

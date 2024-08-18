@@ -7,7 +7,7 @@ const router = Router()
 router.get('/', async (req, res) => {
   try {
     const carts = await cartsService.getAll()
-    res.status(HTTP_RESPONSES.SUCCESS).render('carts.handlebars', { carts, title: 'Challenge05: WebsocketsHandlebars', style: 'carts.css' })
+    res.status(HTTP_RESPONSES.SUCCESS).render('carts.handlebars', { carts, title: 'Carts | Backend 69990', style: 'carts.css' })
   } catch (error) {
     res.status(HTTP_RESPONSES.INTERNAL_SERVER_ERROR).json({ error: error.message })
   }
@@ -18,7 +18,7 @@ router.get('/:cid', async (req, res) => {
     const { cid } = req.params
     const cart = await cartsService.findOne(cid)
     const productsInCart = cart[0].products
-    res.status(HTTP_RESPONSES.SUCCESS).render('carts.handlebars', { productsInCart, cid, title: 'Challenge05: WebsocketsHandlebars', style: 'carts.css' })
+    res.status(HTTP_RESPONSES.SUCCESS).render('carts.handlebars', { productsInCart, cid, title: 'Carts | Backend 69990', style: 'carts.css' })
   } catch (error) {
     res.status(HTTP_RESPONSES.INTERNAL_SERVER_ERROR).json({ error: error.message })
   }

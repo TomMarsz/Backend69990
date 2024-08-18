@@ -1,6 +1,6 @@
 import Message from "../models/message.model.js";
 
-class MessageDAO {
+class MessageManager {
   async getAll() {
     return await Message.find({ status: true })
   }
@@ -12,4 +12,4 @@ class MessageDAO {
   }
 }
 
-export default MessageDAO
+export default MessageManager

@@ -9,6 +9,59 @@
       <th><span>Precio</span></th>
       <th><span>Stock</span></th>
     </tr>
+
+    {{#if productsSortByCategoryAsc}}
+    {{#each productsSortByCategoryAsc}}
+    <tr>
+      <td>{{_id}}</td>
+      <td>{{title}}</td>
+      <td>{{description}}</td>
+      <td>{{category}}</td>
+      <td>{{price}}</td>
+      <td>{{stock}}</td>
+    </tr>
+    {{/each}}
+    {{/if}}
+
+    {{#if productsSortByCategoryDes}}
+    {{#each productsSortByCategoryDes}}
+    <tr>
+      <td>{{_id}}</td>
+      <td>{{title}}</td>
+      <td>{{description}}</td>
+      <td>{{category}}</td>
+      <td>{{price}}</td>
+      <td>{{stock}}</td>
+    </tr>
+    {{/each}}
+    {{/if}}
+
+    {{#if productsSortByPriceAsc}}
+    {{#each productsSortByPriceAsc}}
+    <tr>
+      <td>{{_id}}</td>
+      <td>{{title}}</td>
+      <td>{{description}}</td>
+      <td>{{category}}</td>
+      <td>{{price}}</td>
+      <td>{{stock}}</td>
+    </tr>
+    {{/each}}
+    {{/if}}
+
+    {{#if productsSortByPriceDes}}
+    {{#each productsSortByPriceDes}}
+    <tr>
+      <td>{{_id}}</td>
+      <td>{{title}}</td>
+      <td>{{description}}</td>
+      <td>{{category}}</td>
+      <td>{{price}}</td>
+      <td>{{stock}}</td>
+    </tr>
+    {{/each}}
+    {{/if}}
+
     {{#if productsLimited}}
     {{#each productsLimited}}
     <tr>
@@ -34,6 +87,7 @@
     </tr>
     {{/each}}
     {{/if}}
+
     {{#each products}}
     <tr>
       <td>{{_id}}</td>

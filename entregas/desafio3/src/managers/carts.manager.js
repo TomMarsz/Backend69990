@@ -1,7 +1,7 @@
 import Cart from "../models/cart.model.js";
 import Product from "../models/product.model.js";
 
-class CartDAO {
+class CartManager {
   async getAll() {
     return await Cart.find({ status: true })
   }
@@ -56,4 +56,4 @@ class CartDAO {
   }
 }
 
-export default CartDAO
+export default CartManager

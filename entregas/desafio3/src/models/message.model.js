@@ -1,7 +1,5 @@
 import mongoose from 'mongoose'
 
-const messageCollection = 'messages'
-
 const messageSchema = new mongoose.Schema({
 	user: String,
 	message: String,
@@ -13,6 +11,6 @@ const messageSchema = new mongoose.Schema({
   updatedAt: Date
 })
 
-const Message = mongoose.model(messageCollection, messageSchema)
+const Message = mongoose.model('messages', messageSchema)
 
 export default Message
