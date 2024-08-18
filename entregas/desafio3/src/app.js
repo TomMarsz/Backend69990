@@ -7,7 +7,7 @@ import app from "./server.js";
 const chats = []
 
 app.get("/", (req, res) => {
-  res.status(HTTP_RESPONSES.SUCCESS).render('index.handlebars', { title: 'Challenge05: WebsocketsHandlebars', style: 'index.css' })
+  res.status(HTTP_RESPONSES.SUCCESS).render('index.handlebars', { title: 'HomePage | Backend 69990', style: 'index.css' })
 });
 
 app.get('*', (req, res) => {
