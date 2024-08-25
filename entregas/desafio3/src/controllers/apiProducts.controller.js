@@ -46,9 +46,9 @@ router.get("/:pid", async (req, res) => {
 })
 
 router.post("/", async (req, res) => {
-  const { title, description, price, stock, category, thumbnail } = req.body
+  const { title, description, price, stock, category } = req.body
   try {
-    const newProductInfo = { title, description, price, stock, category, thumbnail }
+    const newProductInfo = { title, description, price, stock, category }
     const newProduct = await productManager.insertOne(newProductInfo)
     res.status(HTTP_RESPONSES.CREATED).json({ response: { newProduct } })
   } catch (error) {
@@ -58,10 +58,10 @@ router.post("/", async (req, res) => {
 
 router.put("/:pid", async (req, res) => {
   const { pid } = req.params
-  const { title, description, price, stock, category, thumbnail } = req.body
+  const { title, description, price, stock, category } = req.body
   try {
-    if (!title || !description || !price || !stock || !category || !thumbnail) return res.status(HTTP_RESPONSES.BAD_REQUEST).json({ error: error.message })
-    const productInfo = { title, description, price, stock, category, thumbnail }
+    if (!title || !description || !price || !stock || !category) return res.status(HTTP_RESPONSES.BAD_REQUEST).json({ error: error.message })
+    const productInfo = { title, description, price, stock, category }
     const updatedProduct = await productManager.updateOne(pid, productInfo)
     res.status(HTTP_RESPONSES.ACCEPTED).json({ payload: { updatedProduct } })
   } catch (error) {

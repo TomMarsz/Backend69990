@@ -28,7 +28,6 @@ const productSchema = new mongoose.Schema({
   },
   thumbnail: {
     type: Array,
-    required: true
   },
   createdAt: Date,
   updatedAt: Date

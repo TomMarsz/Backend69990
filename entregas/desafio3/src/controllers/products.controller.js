@@ -28,7 +28,7 @@ router.get("/", async (req, res) => {
       prevLink: result.hasPrevPage ? `/api/products?page=${result.prevPage}` : null,
       nextLink: result.hasNextPage ? `/api/products?page=${result.nextPage}` : null
     };
-    res.status(HTTP_RESPONSES.SUCCESS).json({ response });
+    res.status(HTTP_RESPONSES.SUCCESS).render("products.handlebars", { response, title: "Products", style: "products.css" });
   } catch (error) {
     res.status(HTTP_RESPONSES.INTERNAL_SERVER_ERROR).json({ error: error.message });
   }
@@ -40,40 +40,6 @@ router.get("/:pid", async (req, res) => {
   try {
     const productById = await productManager.findOne(pid)
     res.status(HTTP_RESPONSES.SUCCESS).json({ response: productById })
-  } catch (error) {
-    res.status(HTTP_RESPONSES.INTERNAL_SERVER_ERROR).json({ error: error.message })
-  }
-})
-
-router.post("/", async (req, res) => {
-  const { title, description, price, stock, category, thumbnail } = req.body
-  try {
-    const newProductInfo = { title, description, price, stock, category, thumbnail }
-    const newProduct = await productManager.insertOne(newProductInfo)
-    res.status(HTTP_RESPONSES.CREATED).json({ response: { newProduct } })
-  } catch (error) {
-    res.status(HTTP_RESPONSES.INTERNAL_SERVER_ERROR).json({ error: error.message })
-  }
-})
-
-router.put("/:pid", async (req, res) => {
-  const { pid } = req.params
-  const { title, description, price, stock, category, thumbnail } = req.body
-  try {
-    if (!title || !description || !price || !stock || !category || !thumbnail) return res.status(HTTP_RESPONSES.BAD_REQUEST).json({ error: error.message })
-    const productInfo = { title, description, price, stock, category, thumbnail }
-    const updatedProduct = await productManager.updateOne(pid, productInfo)
-    res.status(HTTP_RESPONSES.ACCEPTED).json({ payload: { updatedProduct } })
-  } catch (error) {
-    res.status(HTTP_RESPONSES.INTERNAL_SERVER_ERROR).json({ error: error.message })
-  }
-})
-
-router.delete("/:pid", async (req, res) => {
-  const { pid } = req.params
-  try {
-    const deletedProduct = await productManager.deleteOne(pid)
-    res.status(HTTP_RESPONSES.ACCEPTED).json({ payload: { deletedProduct } })
   } catch (error) {
     res.status(HTTP_RESPONSES.INTERNAL_SERVER_ERROR).json({ error: error.message })
   }

@@ -1,57 +1,37 @@
 <div class="container">
   <h2>Productos</h2>
 
-    {{#each products}}
-    <div>
-      <p>{{_id}}</p>
-      <h3>{{title}}</h3>
-      <p>{{description}}</p>
-      <p>{{category}}</p>
-      <p>{{price}}</p>
-      <p>{{stock}}</p>
+  <div class="product-container">
+    {{#each response.payload}}
+    <div class="product-card">
+      <form action="/api/carts/:cid/products/{{_id}}" method="post" id="form">
+        <p >{{category}}</p>
+        <h3>{{title}}</h3>
+        <p>{{description}}</p>
+        <p>{{price}}</p>
+        <p>{{stock}}</p>
+        <p>{{_id}}</p>
+        <input type="hidden" name="quantity" value="1">
+        <button type="submit" id="submitBtn">Agregar al carrito</button>
+      </form>
     </div>
     {{/each}}
+  </div>
 
-    <div class="pagination">
-        {{#if hasPrevPage}}
-        <a href="/productos?page={{prevPage}}">Anterior</a>
-        {{/if}}
+  <div class="pagination">
+    {{#if response.hasPrevPage}}
+    <button><a href="/products?page={{response.prevPage}}">Anterior</a></button>
+    {{/if}}
 
-        {{#if hasNextPage}}
-        <a href="/productos?page={{nextPage}}">Siguiente</a>
-        {{/if}}
-        <span>Página {{page}} de {{totalPages}}</span>
-    </div>
-
-
-    <ul class="product-list">
-        {{#each docs}}
-        <li class="product-item">
-            <p><strong>ID:</strong> {{_id}}</p>
-            <p><strong>Título:</strong> {{title}}</p>
-            <p><strong>Descripción:</strong> {{description}}</p>
-            <p><strong>Precio:</strong> {{price}}</p>
-            <p><strong>Imagen:</strong> {{thumbnails}}</p>
-            <p><strong>Código:</strong> {{code}}</p>
-            <p><strong>Stock:</strong> {{stock}}</p>
-            <p><strong>Categoría:</strong> {{category}}</p>
-        </li>
-        {{/each}}
-    </ul>
-
-    <div class="pagination">
-        {{#if hasPrevPage}}
-        <a href="/productos?page={{prevPage}}&limit={{limit}}&sort={{sort}}">Anterior</a>
-        {{/if}}
-
-        <span>Página {{page}} de {{totalPages}}</span>
-
-        {{#if hasNextPage}}
-        <a href="/productos?page={{nextPage}}&limit={{limit}}&sort={{sort}}">Siguiente</a>
-        {{/if}}
-    </div>
-</div>
+    {{#if response.hasNextPage}}
+    <button><a href="/products?page={{response.nextPage}}">Siguiente</a></button>
+    {{/if}}
+    <span>Página {{response.page}} de {{response.totalPages}}</span>
+  </div>
 
   <button><a href="http://localhost:8080/">Back to Home</a></button>
 </div>
+
+</div>
+<script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
 <script src="/js/products.js"></script>
