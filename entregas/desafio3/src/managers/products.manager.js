@@ -1,9 +1,11 @@
 import Product from "../models/product.model.js";
 
 class ProductManager {
-	async getAll() {
+	async getAll(filter, options) {
 		try {
-			return await Product.find({ status: true })
+			const result = await Product.paginate(filter, options);
+			result.docs = result.docs.map(doc => doc.toObject());
+			return result;
 		} catch (error) {
 			throw error
 		}
@@ -21,7 +23,8 @@ class ProductManager {
 
 	async findOne(pid) {
 		try {
-			return await Product.find({ _id: pid, status: true })
+			const product = await Product.findById(pid)
+			return product
 		} catch (error) {
 			throw error
 		}
@@ -30,8 +33,8 @@ class ProductManager {
 	async updateOne(pid, productInfo) {
 		try {
 			productInfo.updatedAt = new Date()
-			await Product.updateOne({ _id: pid, status: true }, productInfo)
-			return await Product.find({ _id: pid })
+			await Product.findByIdAndUpdate(pid, productInfo)
+			return await Product.find(pid)
 		} catch (error) {
 			throw error
 		}
@@ -39,51 +42,9 @@ class ProductManager {
 
 	async deleteOne(pid) {
 		try {
-			await Product.updateOne({ _id: pid }, { status: false })
-			return await Product.find({ _id: pid })
-		} catch (error) {
-			throw error
-		}
-	}
-
-	async enableOne(pid) {
-		try {
-			await Product.updateOne({ _id: pid }, { status: true })
-			return await Product.find({ _id: pid })
-		} catch (error) {
-			throw error
-		}
-	}
-
-	async forceDeleteOne(pid) {
-		try {
-			await Product.deleteOne({ _id: pid })
-			return await Product.find({ _id: pid })
-		} catch (error) {
-			throw error
-		}
-	}
-
-	async sortByPrice(num) {
-		try {
-			return await Product.find({ status: true }).sort({ price: num })
-		} catch (error) {
-			throw error
-		}
-
-	}
-
-	async sortByCategory(num) {
-		try {
-			return await Product.find({ status: true }).sort({ category: num })
-		} catch (error) {
-			throw error
-		}
-	}
-
-	async limitProducts(num) {
-		try {
-			return await Product.find({ status: true }).limit(num)
+			const deletedProduct = await Product.findByIdAndDelete(pid)
+			deletedProduct.updatedAt = new Date()
+			return deletedProduct
 		} catch (error) {
 			throw error
 		}

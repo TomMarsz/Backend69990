@@ -1,0 +1,242 @@
+[
+	{
+		"title": "Wireless Bluetooth Headphones",
+		"description": "Over-ear, noise-cancelling wireless Bluetooth headphones with a built-in microphone.",
+		"price": 89.99,
+		"status": true,
+		"stock": 120,
+		"category": "Electronics",
+		"thumbnail": [
+			"https://example.com/images/headphones1.jpg",
+			"https://example.com/images/headphones2.jpg"
+		]
+	},
+	{
+		"title": "Smart LED TV 55-inch",
+		"description": "55-inch 4K UHD Smart LED TV with streaming capabilities and voice control.",
+		"price": 599.99,
+		"status": true,
+		"stock": 45,
+		"category": "Electronics",
+		"thumbnail": [
+			"https://example.com/images/tv1.jpg",
+			"https://example.com/images/tv2.jpg"
+		]
+	},
+	{
+		"title": "Ergonomic Office Chair",
+		"description": "Comfortable ergonomic office chair with adjustable height and lumbar support.",
+		"price": 149.99,
+		"status": true,
+		"stock": 200,
+		"category": "Furniture",
+		"thumbnail": [
+			"https://example.com/images/chair1.jpg",
+			"https://example.com/images/chair2.jpg"
+		]
+	},
+	{
+		"title": "Running Shoes",
+		"description": "Breathable, lightweight running shoes suitable for all terrains.",
+		"price": 79.99,
+		"status": true,
+		"stock": 150,
+		"category": "Footwear",
+		"thumbnail": [
+			"https://example.com/images/shoes1.jpg",
+			"https://example.com/images/shoes2.jpg"
+		]
+	},
+	{
+		"title": "Stainless Steel Water Bottle",
+		"description": "Durable, leak-proof stainless steel water bottle with a 750ml capacity.",
+		"price": 24.99,
+		"status": true,
+		"stock": 300,
+		"category": "Accessories",
+		"thumbnail": [
+			"https://example.com/images/bottle1.jpg",
+			"https://example.com/images/bottle2.jpg"
+		]
+	},
+	{
+		"title": "Smartphone 128GB",
+		"description": "High-performance smartphone with 128GB storage, dual camera, and fast charging.",
+		"price": 699.99,
+		"status": true,
+		"stock": 80,
+		"category": "Electronics",
+		"thumbnail": [
+			"https://example.com/images/smartphone1.jpg",
+			"https://example.com/images/smartphone2.jpg"
+		]
+	},
+	{
+		"title": "Gaming Laptop",
+		"description": "15.6-inch gaming laptop with powerful graphics card, 16GB RAM, and 512GB SSD.",
+		"price": 1199.99,
+		"status": true,
+		"stock": 50,
+		"category": "Computers",
+		"thumbnail": [
+			"https://example.com/images/laptop1.jpg",
+			"https://example.com/images/laptop2.jpg"
+		]
+	},
+	{
+		"title": "Coffee Maker",
+		"description": "Automatic coffee maker with programmable settings, built-in grinder, and 12-cup capacity.",
+		"price": 129.99,
+		"status": true,
+		"stock": 100,
+		"category": "Home Appliances",
+		"thumbnail": [
+			"https://example.com/images/coffeemaker1.jpg",
+			"https://example.com/images/coffeemaker2.jpg"
+		]
+	},
+	{
+		"title": "Fitness Tracker",
+		"description": "Waterproof fitness tracker with heart rate monitor, sleep tracking, and GPS.",
+		"price": 59.99,
+		"status": true,
+		"stock": 150,
+		"category": "Wearables",
+		"thumbnail": [
+			"https://example.com/images/fitnesstracker1.jpg",
+			"https://example.com/images/fitnesstracker2.jpg"
+		]
+	},
+	{
+		"title": "Electric Toothbrush",
+		"description": "Rechargeable electric toothbrush with multiple cleaning modes and a 2-minute timer.",
+		"price": 49.99,
+		"status": true,
+		"stock": 200,
+		"category": "Personal Care",
+		"thumbnail": [
+			"https://example.com/images/toothbrush1.jpg",
+			"https://example.com/images/toothbrush2.jpg"
+		]
+	},
+	{
+		"title": "Noise-Cancelling Earbuds",
+		"description": "In-ear wireless earbuds with active noise cancellation and long battery life.",
+		"price": 129.99,
+		"status": true,
+		"stock": 250,
+		"category": "Electronics",
+		"thumbnail": [
+			"https://example.com/images/earbuds1.jpg",
+			"https://example.com/images/earbuds2.jpg"
+		]
+	},
+	{
+		"title": "Smart Thermostat",
+		"description": "Wi-Fi enabled smart thermostat with energy-saving features and remote control.",
+		"price": 179.99,
+		"status": true,
+		"stock": 80,
+		"category": "Home Appliances",
+		"thumbnail": [
+			"https://example.com/images/thermostat1.jpg",
+			"https://example.com/images/thermostat2.jpg"
+		]
+	},
+	{
+		"title": "4K Action Camera",
+		"description": "Compact 4K action camera with waterproof casing and wide-angle lens.",
+		"price": 249.99,
+		"status": true,
+		"stock": 60,
+		"category": "Cameras",
+		"thumbnail": [
+			"https://example.com/images/actioncamera1.jpg",
+			"https://example.com/images/actioncamera2.jpg"
+		]
+	},
+	{
+		"title": "Bluetooth Speaker",
+		"description": "Portable Bluetooth speaker with deep bass and 12-hour battery life.",
+		"price": 89.99,
+		"status": true,
+		"stock": 180,
+		"category": "Audio",
+		"thumbnail": [
+			"https://example.com/images/speaker1.jpg",
+			"https://example.com/images/speaker2.jpg"
+		]
+	},
+	{
+		"title": "Fitness Dumbbell Set",
+		"description": "Adjustable dumbbell set with weights ranging from 5 to 50 pounds.",
+		"price": 199.99,
+		"status": true,
+		"stock": 100,
+		"category": "Fitness",
+		"thumbnail": [
+			"https://example.com/images/dumbbell1.jpg",
+			"https://example.com/images/dumbbell2.jpg"
+		]
+	},
+	{
+		"title": "Wireless Keyboard and Mouse Combo",
+		"description": "Ergonomic wireless keyboard and mouse combo with long battery life.",
+		"price": 69.99,
+		"status": true,
+		"stock": 220,
+		"category": "Computers",
+		"thumbnail": [
+			"https://example.com/images/keyboardmouse1.jpg",
+			"https://example.com/images/keyboardmouse2.jpg"
+		]
+	},
+	{
+		"title": "Portable Air Purifier",
+		"description": "Compact air purifier with HEPA filter, suitable for small rooms.",
+		"price": 149.99,
+		"status": true,
+		"stock": 70,
+		"category": "Home Appliances",
+		"thumbnail": [
+			"https://example.com/images/airpurifier1.jpg",
+			"https://example.com/images/airpurifier2.jpg"
+		]
+	},
+	{
+		"title": "Wireless Charging Pad",
+		"description": "Fast wireless charging pad compatible with all Qi-enabled devices.",
+		"price": 39.99,
+		"status": true,
+		"stock": 300,
+		"category": "Accessories",
+		"thumbnail": [
+			"https://example.com/images/chargingpad1.jpg",
+			"https://example.com/images/chargingpad2.jpg"
+		]
+	},
+	{
+		"title": "Electric Scooter",
+		"description": "Foldable electric scooter with a top speed of 15 mph and a 20-mile range.",
+		"price": 399.99,
+		"status": true,
+		"stock": 40,
+		"category": "Transportation",
+		"thumbnail": [
+			"https://example.com/images/scooter1.jpg",
+			"https://example.com/images/scooter2.jpg"
+		]
+	},
+	{
+		"title": "Smartwatch",
+		"description": "Feature-rich smartwatch with fitness tracking, notifications, and customizable watch faces.",
+		"price": 229.99,
+		"status": true,
+		"stock": 120,
+		"category": "Wearables",
+		"thumbnail": [
+			"https://example.com/images/smartwatch1.jpg",
+			"https://example.com/images/smartwatch2.jpg"
+		]
+	}
+]

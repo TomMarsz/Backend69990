@@ -1,103 +1,57 @@
 <div class="container">
-  <h2>Lista de Productos</h2>
-  <table>
-    <tr>
-      <th><span>ID</span></th>
-      <th><span>Nombre</span></th>
-      <th><span>Descripción</span></th>
-      <th><span>Categoría</span></th>
-      <th><span>Precio</span></th>
-      <th><span>Stock</span></th>
-    </tr>
-
-    {{#if productsSortByCategoryAsc}}
-    {{#each productsSortByCategoryAsc}}
-    <tr>
-      <td>{{_id}}</td>
-      <td>{{title}}</td>
-      <td>{{description}}</td>
-      <td>{{category}}</td>
-      <td>{{price}}</td>
-      <td>{{stock}}</td>
-    </tr>
-    {{/each}}
-    {{/if}}
-
-    {{#if productsSortByCategoryDes}}
-    {{#each productsSortByCategoryDes}}
-    <tr>
-      <td>{{_id}}</td>
-      <td>{{title}}</td>
-      <td>{{description}}</td>
-      <td>{{category}}</td>
-      <td>{{price}}</td>
-      <td>{{stock}}</td>
-    </tr>
-    {{/each}}
-    {{/if}}
-
-    {{#if productsSortByPriceAsc}}
-    {{#each productsSortByPriceAsc}}
-    <tr>
-      <td>{{_id}}</td>
-      <td>{{title}}</td>
-      <td>{{description}}</td>
-      <td>{{category}}</td>
-      <td>{{price}}</td>
-      <td>{{stock}}</td>
-    </tr>
-    {{/each}}
-    {{/if}}
-
-    {{#if productsSortByPriceDes}}
-    {{#each productsSortByPriceDes}}
-    <tr>
-      <td>{{_id}}</td>
-      <td>{{title}}</td>
-      <td>{{description}}</td>
-      <td>{{category}}</td>
-      <td>{{price}}</td>
-      <td>{{stock}}</td>
-    </tr>
-    {{/each}}
-    {{/if}}
-
-    {{#if productsLimited}}
-    {{#each productsLimited}}
-    <tr>
-      <td>{{_id}}</td>
-      <td>{{title}}</td>
-      <td>{{description}}</td>
-      <td>{{category}}</td>
-      <td>{{price}}</td>
-      <td>{{stock}}</td>
-    </tr>
-    {{/each}}
-    {{/if}}
-
-    {{#if productById}}
-    {{#each productById}}
-    <tr>
-      <td>{{_id}}</td>
-      <td>{{title}}</td>
-      <td>{{description}}</td>
-      <td>{{category}}</td>
-      <td>{{price}}</td>
-      <td>{{stock}}</td>
-    </tr>
-    {{/each}}
-    {{/if}}
+  <h2>Productos</h2>
 
     {{#each products}}
-    <tr>
-      <td>{{_id}}</td>
-      <td>{{title}}</td>
-      <td>{{description}}</td>
-      <td>{{category}}</td>
-      <td>{{price}}</td>
-      <td>{{stock}}</td>
-    </tr>
+    <div>
+      <p>{{_id}}</p>
+      <h3>{{title}}</h3>
+      <p>{{description}}</p>
+      <p>{{category}}</p>
+      <p>{{price}}</p>
+      <p>{{stock}}</p>
+    </div>
     {{/each}}
-  </table>
+
+    <div class="pagination">
+        {{#if hasPrevPage}}
+        <a href="/productos?page={{prevPage}}">Anterior</a>
+        {{/if}}
+
+        {{#if hasNextPage}}
+        <a href="/productos?page={{nextPage}}">Siguiente</a>
+        {{/if}}
+        <span>Página {{page}} de {{totalPages}}</span>
+    </div>
+
+
+    <ul class="product-list">
+        {{#each docs}}
+        <li class="product-item">
+            <p><strong>ID:</strong> {{_id}}</p>
+            <p><strong>Título:</strong> {{title}}</p>
+            <p><strong>Descripción:</strong> {{description}}</p>
+            <p><strong>Precio:</strong> {{price}}</p>
+            <p><strong>Imagen:</strong> {{thumbnails}}</p>
+            <p><strong>Código:</strong> {{code}}</p>
+            <p><strong>Stock:</strong> {{stock}}</p>
+            <p><strong>Categoría:</strong> {{category}}</p>
+        </li>
+        {{/each}}
+    </ul>
+
+    <div class="pagination">
+        {{#if hasPrevPage}}
+        <a href="/productos?page={{prevPage}}&limit={{limit}}&sort={{sort}}">Anterior</a>
+        {{/if}}
+
+        <span>Página {{page}} de {{totalPages}}</span>
+
+        {{#if hasNextPage}}
+        <a href="/productos?page={{nextPage}}&limit={{limit}}&sort={{sort}}">Siguiente</a>
+        {{/if}}
+    </div>
+</div>
+
   <button><a href="http://localhost:8080/">Back to Home</a></button>
 </div>
+<script src="/js/products.js"></script>

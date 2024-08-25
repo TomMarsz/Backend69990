@@ -1,10 +1,7 @@
 import { Server } from "socket.io";
 import port from "./configs/server.config.js"
-import messagesService from "./services/messages.service.js";
 import HTTP_RESPONSES from "./constants/http-responses.constant.js";
 import app from "./server.js";
-
-const chats = []
 
 app.get("/", (req, res) => {
   res.status(HTTP_RESPONSES.SUCCESS).render('index.handlebars', { title: 'HomePage | Backend 69990', style: 'index.css' })
@@ -23,25 +20,6 @@ const io = new Server(httpServer)
 
 io.on('connection', socket => {
   console.log(socket.id);
-  
-  socket.on('newUser', data => {
-    socket.broadcast.emit('userConnected', data)
-    socket.emit('messageLogs',chats)
-  })
-  
-  socket.on('message', async data => {
-    chats.push(data)
-    io.emit('messageLogs', chats)
-    try {
-      const newMeesage = {
-        user: data.useremail,
-        message: data.message,
-      }
-      await messagesService.insertOne(newMeesage)
-    } catch (error) {
-      console.log(error);
-    }
-  })
 })
 
 export { io }
